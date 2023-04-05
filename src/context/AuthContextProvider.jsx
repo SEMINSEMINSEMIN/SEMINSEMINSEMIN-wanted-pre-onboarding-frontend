@@ -2,11 +2,15 @@ import AuthContext from "./AuthContext";
 import useAuth from "./hooks/useAuth";
 
 export default function AuthContextProvider(props) {
-    const isLoggedIn = useAuth();
+    const {isLoggedIn, logoutHandler, loginHandler} = useAuth();
 
     return (
         <AuthContext.Provider
-            value={{isLoggedIn: isLoggedIn}}
+            value={{
+                isLoggedIn: isLoggedIn,
+                onLogout: logoutHandler,
+                onLogin: loginHandler
+            }}
         >
             {props.children}
         </AuthContext.Provider>

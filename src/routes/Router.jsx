@@ -1,7 +1,6 @@
 import React, { Suspense, lazy, useContext } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Loading from "../components/common/Loading/Loading";
-// import useLoginCheck from "../hooks/useLoginCheck";
 import AuthContext from "../context/AuthContext";
 
 const Home = lazy(() => import("../pages/Home"));
@@ -10,7 +9,6 @@ const SignIn = lazy(() => import("../pages/SignIn"));
 const Todo = lazy(() => import("../pages/Todo"));
 
 export default function Router() {
-    // const isLoggedIn = useLoginCheck();
     const ctx = useContext(AuthContext);
 
     return (
@@ -21,19 +19,31 @@ export default function Router() {
                     <Route
                         path="/signup"
                         element={
-                            ctx.isLoggedIn ? <Navigate to="/todo" /> : <SignUp />
+                            ctx.isLoggedIn ? (
+                                <Navigate to="/todo" />
+                            ) : (
+                                <SignUp />
+                            )
                         }
                     />
                     <Route
                         path="/signin"
                         element={
-                            ctx.isLoggedIn ? <Navigate to="/todo" /> : <SignIn />
+                            ctx.isLoggedIn ? (
+                                <Navigate to="/todo" />
+                            ) : (
+                                <SignIn />
+                            )
                         }
                     />
                     <Route
                         path="/todo"
                         element={
-                            ctx.isLoggedIn ? <Todo /> : <Navigate to="/signin" />
+                            ctx.isLoggedIn ? (
+                                <Todo />
+                            ) : (
+                                <Navigate to="/signin" />
+                            )
                         }
                     />
                 </Routes>
