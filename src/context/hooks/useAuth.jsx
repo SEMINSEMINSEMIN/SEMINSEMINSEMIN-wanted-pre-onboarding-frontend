@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import useLocalStorage from "./useLocalStorage";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
-export default function useLoginCheck() {
+export default function useAuth() {
     const [storedValue] = useLocalStorage("token", false);
-    const [isLoggedIn, setIsLoggedIn] = useState();
-    
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
     useEffect(() => {
         setIsLoggedIn(storedValue);
     }, [storedValue]);
