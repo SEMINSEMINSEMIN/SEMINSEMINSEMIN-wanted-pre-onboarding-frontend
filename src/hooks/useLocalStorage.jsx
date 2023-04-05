@@ -11,6 +11,15 @@ export default function useLocalStorage(key, initialValue) {
         }
     });
 
+    const removeValue = () => {
+        try {
+            setStoredValue(initialValue);
+            window.localStorage.removeItem(key);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     const setValue = (value) => {
         try {
             const valueToStore =
@@ -22,5 +31,5 @@ export default function useLocalStorage(key, initialValue) {
         }
     };
 
-    return [storedValue, setValue];
+    return [storedValue, removeValue, setValue];
 }
