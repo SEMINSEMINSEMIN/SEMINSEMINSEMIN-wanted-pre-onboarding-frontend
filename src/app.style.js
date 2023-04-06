@@ -28,6 +28,14 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 1.6rem;
     }
 
+    input {
+        border: none;
+    }
+
+    input::placeholder {
+        color: var(--color-mild-gray);
+    }
+
     button {
         border: none;
         font-size: 100%;
