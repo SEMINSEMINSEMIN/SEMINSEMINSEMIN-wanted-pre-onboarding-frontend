@@ -1,5 +1,11 @@
-import React from "react";
+import LabelOnTop from "../components/common/LabelOnTop/LabelOnTop";
+import SignUpForm from "../components/signup/SignUpForm/SignUpForm";
 
 export default function SignUp() {
-    return <div>SignUp</div>;
+    return (
+        <>
+            <LabelOnTop>회원가입</LabelOnTop>
+            <SignUpForm />
+        </>
+    );
 }
