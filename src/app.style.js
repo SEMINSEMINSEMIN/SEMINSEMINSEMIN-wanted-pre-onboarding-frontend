@@ -8,7 +8,8 @@ export const GlobalStyle = createGlobalStyle`
         --color-main-solid: #5B4A92;
         --color-main-mild: #E1CAEF;
         --color-main-mild-side: #E1DDF4;
-        --color-solid-gray: #767676;
+        --color-solid1st-gray: #4F4F4F;
+        --color-solid2nd-gray: #767676;
         --color-mild-gray: #DBDBDB;
         --color-text-main: #000000;
         --color-text-warn: #E41B3F;
@@ -23,8 +24,14 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 62.5%;
     }
 
+    body {
+        font-size: 1.6rem;
+    }
+
     button {
         border: none;
+        font-size: 100%;
+        background: none;
         cursor: pointer;
         :disabled {
             cursor: not-allowed;
