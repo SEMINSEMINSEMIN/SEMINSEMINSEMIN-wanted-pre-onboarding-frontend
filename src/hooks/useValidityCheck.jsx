@@ -10,7 +10,9 @@ const emailReducer = (state, action) => {
 };
 
 const passwordReducer = (state, action) => {
-    return { value: action.val, isValid: action.val.length >= 8 };
+    return action.type === "loginDenied" ? 
+        { value: state.value, isValid: false } :
+        { value: action.val, isValid: action.val.length >= 8 };
 };
 
 export default function useValidityCheck() {
@@ -30,6 +32,7 @@ export default function useValidityCheck() {
     const { value: pwValue, isValid: pwIsValid } = pwState;
 
     const warnEmailRef = useRef();
+    const warnPwRef = useRef();
 
     const sendRequest = useHttp();
     const navigate = useNavigate();
@@ -54,6 +57,10 @@ export default function useValidityCheck() {
     }, []);
 
     const pwChangeHandler = useCallback((e) => {
+        if (warnPwRef.current.textContent !== "비밀번호는 8자 이상이어야 합니다.") {
+            console.log("경고 메시지 다시 초기값으로");
+            warnPwRef.current.textContent = "비밀번호는 8자 이상이어야 합니다.";
+        }
         dispatchPw({ val: e.target.value });
     }, []);
 
@@ -92,6 +99,11 @@ export default function useValidityCheck() {
                 warnEmailRef.current.textContent = errMsg;
                 dispatchEmail({ type: "notUnique" });
             };
+        } else {
+            errorHandler = () => {
+                warnPwRef.current.textContent = "이메일 또는 비밀번호가 일치하지 않습니다.";
+                dispatchPw({ type: "loginDenied" });
+            };
         }
 
         sendRequest(reqConfig, responseHandler, errorHandler);
@@ -103,6 +115,7 @@ export default function useValidityCheck() {
         warnEmailRef,
         pwValue,
         pwIsValid,
+        warnPwRef,
         isFormValid,
         emailChangeHandler,
         pwChangeHandler,

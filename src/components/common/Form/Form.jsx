@@ -9,6 +9,7 @@ export default function Form({ type }) {
         emailValue,
         emailIsValid,
         warnEmailRef,
+        warnPwRef,
         pwValue,
         pwIsValid,
         isFormValid,
@@ -43,7 +44,10 @@ export default function Form({ type }) {
                     data-testid="password-input"
                     placeholder="8자 이상의 비밀번호를 입력해 주세요."
                 />
-                <WarnMsg className={pwIsValid === false ? "" : "hidden"}>
+                <WarnMsg 
+                    className={pwIsValid === false ? "" : "hidden"}
+                    ref={warnPwRef}
+                >
                     비밀번호는 8자 이상이어야 합니다.
                 </WarnMsg>
             </UserInput>
