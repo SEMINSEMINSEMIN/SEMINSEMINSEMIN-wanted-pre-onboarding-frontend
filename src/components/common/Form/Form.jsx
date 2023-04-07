@@ -1,10 +1,10 @@
-import FormCont from "../../common/FormCont/FormCont";
-import UserInput from "../../common/UserInput/UserInput";
-import WarnMsg from "../../common/WarnMsg/WarnMsg";
-import Button from "../../common/Button/Button";
+import FormCont from "../FormCont/FormCont";
+import UserInput from "../UserInput/UserInput";
+import WarnMsg from "../WarnMsg/WarnMsg";
+import Button from "../Button/Button";
 import useValidityCheck from "../../../hooks/useValidityCheck";
 
-export default function SignUpForm() {
+export default function Form({ type }) {
     const {
         emailValue,
         emailIsValid,
@@ -14,10 +14,10 @@ export default function SignUpForm() {
         isFormValid,
         emailChangeHandler,
         pwChangeHandler,
-        submitHandler
+        submitHandler,
     } = useValidityCheck();
     return (
-        <FormCont onSubmit={(e) => submitHandler(e, "signup")}>
+        <FormCont onSubmit={(e) => submitHandler(e, type)}>
             <UserInput label="이메일" inputId="email">
                 <input
                     id="email"
@@ -27,7 +27,12 @@ export default function SignUpForm() {
                     data-testid="email-input"
                     placeholder="이메일 주소를 입력해 주세요."
                 />
-                <WarnMsg className={emailIsValid === false ? "" : "hidden"} ref={warnEmailRef}>이메일은 "@"을 포함해야 합니다.</WarnMsg>
+                <WarnMsg
+                    className={emailIsValid === false ? "" : "hidden"}
+                    ref={warnEmailRef}
+                >
+                    이메일은 "@"을 포함해야 합니다.
+                </WarnMsg>
             </UserInput>
             <UserInput label="비밀번호" inputId="pw">
                 <input
@@ -38,7 +43,9 @@ export default function SignUpForm() {
                     data-testid="password-input"
                     placeholder="8자 이상의 비밀번호를 입력해 주세요."
                 />
-                <WarnMsg className={pwIsValid === false ? "" : "hidden"}>비밀번호는 8자 이상이어야 합니다.</WarnMsg>
+                <WarnMsg className={pwIsValid === false ? "" : "hidden"}>
+                    비밀번호는 8자 이상이어야 합니다.
+                </WarnMsg>
             </UserInput>
             <Button
                 className="form-item"
@@ -46,7 +53,7 @@ export default function SignUpForm() {
                 data-testid="signup-button"
                 disabled={!isFormValid}
             >
-                회원가입
+                { type === "signup" ? "회원가입" : "로그인" }
             </Button>
         </FormCont>
     );

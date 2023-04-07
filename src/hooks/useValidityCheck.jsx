@@ -57,6 +57,7 @@ export default function useValidityCheck() {
 
     const submitHandler = useCallback((e, type) => {
         e.preventDefault();
+        console.log(type);
         const reqConfig = {
             method: "POST",
             URL: type === "signup" ? "/auth/signup" : "/auth/signin",
