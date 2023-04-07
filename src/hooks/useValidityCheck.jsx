@@ -2,10 +2,9 @@ import { useState, useEffect, useReducer, useCallback, useRef } from "react";
 import useHttp from "./use-http";
 
 const emailReducer = (state, action) => {
-    if (action.type === "notUnique") {
-        return { value: state.value, isValid: false };
-    }
-    return { value: action.val, isValid: action.val.includes("@") };
+    return action.type === "notUnique" ? 
+        { value: state.value, isValid: false } : 
+        { value: action.val, isValid: action.val.includes("@") };
 };
 
 const passwordReducer = (state, action) => {
@@ -81,7 +80,6 @@ export default function useValidityCheck() {
                 const errMsg = err.response.data.message;
                 warnEmailRef.current.textContent = errMsg;
                 dispatchEmail({ type: "notUnique" });
-                setIsFormValid(false);
             };
         }
 
