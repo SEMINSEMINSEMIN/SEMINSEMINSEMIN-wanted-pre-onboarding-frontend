@@ -1,4 +1,5 @@
 import { useState, useEffect, useReducer, useCallback, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import useHttp from "./use-http";
 
 const emailReducer = (state, action) => {
@@ -30,6 +31,7 @@ export default function useValidityCheck() {
     const warnEmailRef = useRef();
 
     const sendRequest = useHttp();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const identifier = setTimeout(() => {
@@ -67,10 +69,10 @@ export default function useValidityCheck() {
             }
         };
 
-        let applyDataHandler;
+        let responseHandler;
         if (type === "signup") {
-            applyDataHandler = (data) => {
-                console.log(data);
+            responseHandler = (res) => {
+                res.status === 201 && navigate("/signin");
             };
         }
 
@@ -83,8 +85,8 @@ export default function useValidityCheck() {
             };
         }
 
-        sendRequest(reqConfig, applyDataHandler, errorHandler);
-    }, [emailValue, pwValue, sendRequest]);
+        sendRequest(reqConfig, responseHandler, errorHandler);
+    }, [emailValue, pwValue, sendRequest, navigate]);
 
     return {
         emailValue,

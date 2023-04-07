@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import axios from "axios";
 
 const useHttp = () => {
-    const sendRequest = useCallback(async (requestConfig, applyData, errorHandler) => {
+    const sendRequest = useCallback(async (requestConfig, responseHandler, errorHandler) => {
         try {
             const response = await axios({
                 method: requestConfig.method ? requestConfig.method : "GET",
@@ -11,10 +11,7 @@ const useHttp = () => {
                 headers: requestConfig.headers ? requestConfig.headers : {}
             });
 
-            console.log(response.status);
-
-            console.log(applyData);
-            applyData(response.data);
+            responseHandler(response);
         } catch (err) {
             errorHandler(err);
         }
