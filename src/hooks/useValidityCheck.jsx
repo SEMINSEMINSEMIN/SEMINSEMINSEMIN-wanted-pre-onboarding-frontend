@@ -1,6 +1,7 @@
-import { useState, useEffect, useReducer, useCallback, useRef } from "react";
+import { useState, useEffect, useReducer, useCallback, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import useHttp from "./use-http";
+import AuthContext from "../context/AuthContext";
 
 const emailReducer = (state, action) => {
     return action.type === "notUnique" ? 
@@ -32,6 +33,7 @@ export default function useValidityCheck() {
 
     const sendRequest = useHttp();
     const navigate = useNavigate();
+    const ctx = useContext(AuthContext);
 
     useEffect(() => {
         const identifier = setTimeout(() => {
@@ -75,6 +77,12 @@ export default function useValidityCheck() {
             responseHandler = (res) => {
                 res.status === 201 && navigate("/signin");
             };
+        } else {
+            responseHandler = (res) => {
+                if (res.status === 200) {
+                    ctx.onLogin(res.data.access_token);
+                }
+            };
         }
 
         let errorHandler;
@@ -87,7 +95,7 @@ export default function useValidityCheck() {
         }
 
         sendRequest(reqConfig, responseHandler, errorHandler);
-    }, [emailValue, pwValue, sendRequest, navigate]);
+    }, [emailValue, pwValue, sendRequest, navigate, ctx]);
 
     return {
         emailValue,
