@@ -1,11 +1,11 @@
 import LabelOnTop from "../components/common/LabelOnTop/LabelOnTop";
-import SignUpForm from "../components/signup/SignUpForm/SignUpForm";
+import Form from "../components/common/Form/Form";
 
 export default function SignUp() {
     return (
         <>
             <LabelOnTop>회원가입</LabelOnTop>
-            <SignUpForm />
+            <Form type="signup" />
         </>
     );
 }
