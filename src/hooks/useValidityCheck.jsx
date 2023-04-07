@@ -79,32 +79,31 @@ export default function useValidityCheck() {
             }
         };
 
-        let responseHandler;
-        if (type === "signup") {
-            responseHandler = (res) => {
-                res.status === 201 && navigate("/signin");
-            };
-        } else {
-            responseHandler = (res) => {
-                if (res.status === 200) {
-                    ctx.onLogin(res.data.access_token);
-                }
-            };
-        }
+        const handleSignupResponse = (res) => {
+            if (res.status === 201) {
+                navigate("/signin");
+            }
+        };
 
-        let errorHandler;
-        if (type === "signup") {
-            errorHandler = (err) => {
-                const errMsg = err.response.data.message;
-                warnEmailRef.current.textContent = errMsg;
-                dispatchEmail({ type: "notUnique" });
-            };
-        } else {
-            errorHandler = () => {
-                warnPwRef.current.textContent = "이메일 또는 비밀번호가 일치하지 않습니다.";
-                dispatchPw({ type: "loginDenied" });
-            };
-        }
+        const handleLoginResponse = (res) => {
+            if (res.status === 200) {
+                ctx.onLogin(res.data.access_token);
+            }
+        };
+
+        const handleSignupError = (err) => {
+            const errMsg = err.response.data.message || "Something went wrong";
+            warnEmailRef.current.textContent = errMsg;
+            dispatchEmail({ type: "notUnique" });
+        };
+
+        const handleLoginError = () => {
+            warnPwRef.current.textContent = "이메일 또는 비밀번호가 일치하지 않습니다.";
+            dispatchPw({ type: "loginDenied" });
+        };
+
+        const responseHandler = type === "signup" ? handleSignupResponse : handleLoginResponse;
+        const errorHandler = type === "signup" ? handleSignupError : handleLoginError;
 
         sendRequest(reqConfig, responseHandler, errorHandler);
     }, [emailValue, pwValue, sendRequest, navigate, ctx]);
