@@ -50,7 +50,7 @@ export default function Form({ type }) {
             <Button
                 className="form-item"
                 type="submit"
-                data-testid="signup-button"
+                data-testid={`${type}-button`}
                 disabled={!isFormValid}
             >
                 { type === "signup" ? "회원가입" : "로그인" }
