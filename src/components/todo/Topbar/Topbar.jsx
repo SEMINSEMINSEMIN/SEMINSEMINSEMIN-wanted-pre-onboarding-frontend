@@ -7,7 +7,7 @@ export default function Topbar() {
     return (
         <TopbarCont>
             <h1>To do List</h1>
-            <ButtonSvg description="사이드 바 토글">
+            <ButtonSvg className="topbar" description="사이드 바 토글">
                 <Hamburger width="32" height="32" fill="white" />
             </ButtonSvg>
             <nav className="hidden">
