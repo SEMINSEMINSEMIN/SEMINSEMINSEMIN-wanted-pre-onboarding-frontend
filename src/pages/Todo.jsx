@@ -1,5 +1,7 @@
-import React from "react";
+import Topbar from "../components/todo/Topbar/Topbar";
 
 export default function Todo() {
-    return <div>Todo</div>;
+    return (
+        <Topbar />
+    );
 }
