@@ -40,7 +40,7 @@ const useListRender = () => {
         )));
     }, [list]);
 
-    return { items };
+    return { items, setList };
 };
 
 export default useListRender;

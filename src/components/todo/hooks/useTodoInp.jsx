@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 
-const useTodoInp = () => {
+const useTodoInp = (setList) => {
     const [inpValue, setInpValue] = useState("");
     const [isBtnAble, setIsBtnAble] = useState(false);
 
@@ -18,11 +18,24 @@ const useTodoInp = () => {
         setInpValue(e.target.value);
     }, []);
 
-    const handleBtnClick = useCallback(() => {
+    const handleInpSubmit = useCallback((e) => {
+        e.preventDefault();
         console.log("추가 버튼 클릭됨");
-    }, []);
+        setList((prev) => {
+            return [
+                ...prev,
+                {
+                    id: prev.length + 1,
+                    todo: inpValue,
+                    isCompleted: false,
+                    userId: prev.length + 1
+                }
+            ];
+        });
+        setInpValue("");
+    }, [setList, inpValue]);
 
-    return { inpValue, handleInpChange, isBtnAble, handleBtnClick };
+    return { inpValue, handleInpChange, isBtnAble, handleInpSubmit };
 };
 
 export default useTodoInp;

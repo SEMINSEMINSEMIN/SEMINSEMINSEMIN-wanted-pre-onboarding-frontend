@@ -5,8 +5,8 @@ import useListRender from "../components/todo/hooks/useListRender";
 import useTodoInp from "../components/todo/hooks/useTodoInp";
 
 export default function Todo() {
-    const { items } = useListRender();
-    const { inpValue, handleInpChange, isBtnAble, handleBtnClick } = useTodoInp();
+    const { items, setList } = useListRender();
+    const { inpValue, handleInpChange, isBtnAble, handleInpSubmit } = useTodoInp(setList);
     return (
         <>
             <Topbar />
@@ -15,7 +15,7 @@ export default function Todo() {
                 inpValue={inpValue}
                 handleInpChange={handleInpChange}
                 isBtnAble={isBtnAble} 
-                handleBtnClick={handleBtnClick} 
+                handleInpSubmit={handleInpSubmit}
             />
         </>
     );

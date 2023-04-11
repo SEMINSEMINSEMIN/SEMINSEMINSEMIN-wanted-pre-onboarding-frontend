@@ -2,7 +2,7 @@ import TodoInpCont from "./todoInp.style";
 
 export default function TodoInp(props) {
     return (
-        <TodoInpCont>
+        <TodoInpCont onSubmit={props.handleInpSubmit}>
             <input 
                 type="text" 
                 value={props.inpValue}
@@ -11,8 +11,8 @@ export default function TodoInp(props) {
                 placeholder="할 일 목록 추가하기" 
             />
             <button 
+                type="submit"
                 data-testid="new-todo-add-button" 
-                onClick={props.handleBtnClick}
                 disabled={!props.isBtnAble}
             >
                 추가

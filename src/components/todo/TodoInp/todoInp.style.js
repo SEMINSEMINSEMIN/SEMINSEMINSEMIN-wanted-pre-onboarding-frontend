@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const TodoInpCont = styled.div`
+const TodoInpCont = styled.form`
     display: flex;
     justify-content: space-between;
     position: fixed;
