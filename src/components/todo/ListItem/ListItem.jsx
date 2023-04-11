@@ -8,7 +8,7 @@ export default function ListItem(props) {
     return (
         <ListItemCont>
             <input className="ir" type="checkbox" id={`cb${inpId}`} />
-            <label className={isCompleted ? "completed" : ""} for={`cb${inpId}`}>
+            <label className={isCompleted ? "completed" : ""} htmlFor={`cb${inpId}`}>
                 <span>{todo}</span>
             </label>
             <ButtonSvg className="edit-button" description="수정" testId="modify-button">
