@@ -1,14 +1,15 @@
+import React from "react";
 import TodoInpCont from "./todoInp.style";
 
-export default function TodoInp(props) {
+const TodoInp = React.forwardRef((props, ref) => {
     return (
         <TodoInpCont onSubmit={props.handleInpSubmit}>
             <input 
-                type="text" 
-                value={props.inpValue}
-                onChange={props.handleInpChange}
+                ref={ref}
+                type="text"
                 data-testid="new-todo-input" 
-                placeholder="할 일 목록 추가하기" 
+                placeholder="할 일 목록 추가하기"
+                onChange={props.handleInpChange} 
             />
             <button 
                 type="submit"
@@ -19,4 +20,6 @@ export default function TodoInp(props) {
             </button>
         </TodoInpCont>
     );
-}
+});
+
+export default TodoInp;

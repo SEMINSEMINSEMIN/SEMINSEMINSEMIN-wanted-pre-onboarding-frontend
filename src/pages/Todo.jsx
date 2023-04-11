@@ -6,15 +6,15 @@ import useTodoInp from "../components/todo/hooks/useTodoInp";
 
 export default function Todo() {
     const { items, setList } = useListRender();
-    const { inpValue, handleInpChange, isBtnAble, handleInpSubmit } = useTodoInp(setList);
+    const { isBtnAble, inpRef, handleInpChange, handleInpSubmit } = useTodoInp(setList);
     return (
         <>
             <Topbar />
             <List>{items}</List>
             <TodoInp 
-                inpValue={inpValue}
-                handleInpChange={handleInpChange}
+                ref={inpRef}
                 isBtnAble={isBtnAble} 
+                handleInpChange={handleInpChange}
                 handleInpSubmit={handleInpSubmit}
             />
         </>
