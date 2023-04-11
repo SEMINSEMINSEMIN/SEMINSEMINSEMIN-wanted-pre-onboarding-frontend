@@ -18,20 +18,15 @@ const ListItemCont = styled.li`
         border: 1px solid var(--color-solid2nd-gray);
         border-radius: 5px;
     }
-    & label.completed::before {
-        background-color: var(--color-main-mild);
-    }
-    input[type=checkbox]:checked + label::before {
+    & label.checked::before {
         background-color: var(--color-main-mild);
     }
     & span {
         margin: 0 12px 0 15px;
         line-height: 2rem;
+        text-decoration: none;
     }
-    label.completed > span {
-        text-decoration: line-through;
-    }
-    input[type=checkbox]:checked + label > span {
+    & label.checked > span {
         text-decoration: line-through;
     }
     & svg:hover .edit {
