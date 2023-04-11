@@ -11,9 +11,9 @@ const useHttp = () => {
                 headers: requestConfig.headers ? requestConfig.headers : {}
             });
 
-            responseHandler(response);
+            responseHandler && responseHandler(response);
         } catch (err) {
-            errorHandler(err);
+            errorHandler && errorHandler(err);
         }
     }, []);
 

@@ -1,9 +1,14 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useContext } from "react";
 import debounce from "../../../utils/debounce";
+import useHttp from "../../../hooks/use-http";
+import AuthContext from "../../../context/AuthContext";
 
 const useTodoInp = (listUpdate) => {
     const [isBtnAble, setIsBtnAble] = useState(false);
     const inpRef = useRef();
+    const ctx = useContext(AuthContext);
+    const { isLoggedIn: token } = ctx;
+    const sendRequest = useHttp();
 
     const debouncedHandleInpChange = debounce((inpValue) => {
         inpValue.length ? setIsBtnAble(true) : setIsBtnAble(false); 
@@ -16,19 +21,48 @@ const useTodoInp = (listUpdate) => {
         [debouncedHandleInpChange]
     );
 
+    const renderAfterSubmit = useCallback(() => {
+        const newItem = {
+            todo: inpRef.current.value,
+            isCompleted: false,
+        };
+
+        listUpdate(newItem);
+        setIsBtnAble(false);
+        inpRef.current.value = "";
+    }, [listUpdate]);
+
+    const createTodo = useCallback(() => {
+        const reqConfig = {
+            method: "POST",
+            URL: "/todos",
+            data: {
+                "todo": inpRef.current.value
+            },
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                // "Authorization": `We Bare Bears ${token}`,
+                "Content-Type": "application/json"
+            }
+        };
+
+        const handleCreateErr = (err) => {
+            console.log(err);
+        };
+
+        sendRequest(
+            reqConfig, 
+            renderAfterSubmit, 
+            handleCreateErr
+        );
+    }, [token, sendRequest, renderAfterSubmit]);
+
     const handleInpSubmit = useCallback(
         (e) => {
             e.preventDefault();
-            console.log("추가 버튼 클릭됨");
-            const newItem = {
-                todo: inpRef.current.value,
-                isCompleted: false,
-            };
-            listUpdate(newItem);
-            setIsBtnAble(false);
-            inpRef.current.value = "";
+            createTodo();
         },
-        [listUpdate]
+        [createTodo]
     );
 
     return { isBtnAble, inpRef, handleInpChange, handleInpSubmit };
