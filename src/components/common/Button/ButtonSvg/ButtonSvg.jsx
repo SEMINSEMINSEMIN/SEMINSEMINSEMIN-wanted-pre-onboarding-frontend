@@ -5,6 +5,7 @@ export default function ButtonSvg(props) {
         <ButtonSvgWrapper 
             className={props.className} 
             data-testid={props.testId ? props.testId : ""}
+            onClick={props.onClick}
         >
             <span className="ir">{props.description}</span>
             {props.children}

@@ -3,7 +3,7 @@ import debounce from "../../../utils/debounce";
 import useHttp from "../../../hooks/use-http";
 import AuthContext from "../../../context/AuthContext";
 
-const useTodoInp = (listUpdate) => {
+const useTodoInp = (addItem) => {
     const [isBtnAble, setIsBtnAble] = useState(false);
     const inpRef = useRef();
     const ctx = useContext(AuthContext);
@@ -22,10 +22,10 @@ const useTodoInp = (listUpdate) => {
     );
 
     const renderAfterSubmit = useCallback((res) => {
-        listUpdate(res.data);
+        addItem(res.data);
         setIsBtnAble(false);
         inpRef.current.value = "";
-    }, [listUpdate]);
+    }, [addItem]);
 
     const createTodo = useCallback(() => {
         const reqConfig = {

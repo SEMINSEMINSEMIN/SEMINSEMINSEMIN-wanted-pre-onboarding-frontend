@@ -14,11 +14,11 @@ const useListRender = () => {
 
     useEffect(() => {
         const reqConfig = {
-            method: "GET", 
+            method: "GET",
             URL: "/todos",
             headers: {
-                "Authorization": `Bearer ${token}`
-            }
+                Authorization: `Bearer ${token}`,
+            },
         };
 
         const handleListGet = (res) => {
@@ -32,25 +32,29 @@ const useListRender = () => {
         sendRequest(reqConfig, handleListGet, handleListGetErr);
     }, [sendRequest, token]);
 
-    useEffect(() => {
-        setItems(() => list.map((e) => (
-            <ListItem
-                key={e.id}
-                isCompleted={e.isCompleted}
-                todo={e.todo}
-                inpId={e.id}
-            />
-        )));
-    }, [list]);
-
-    const listUpdate = useCallback((newItem) => {
-        setList((prev) => [
-            ...prev,
-             newItem
-        ]);
+    const removeItem = useCallback((id) => {
+        setList((prev) => prev.filter((e) => e.id !== id));
     }, []);
 
-    return { items, listUpdate };
+    useEffect(() => {
+        setItems(() =>
+            list.map((e) => (
+                <ListItem
+                    key={e.id}
+                    isCompleted={e.isCompleted}
+                    todo={e.todo}
+                    inpId={e.id}
+                    renderOnDelete={removeItem}
+                />
+            ))
+        );
+    }, [list, removeItem]);
+
+    const addItem = useCallback((newItem) => {
+        setList((prev) => [...prev, newItem]);
+    }, []);
+
+    return { items, addItem };
 };
 
 export default useListRender;
