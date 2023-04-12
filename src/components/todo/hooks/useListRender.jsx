@@ -46,11 +46,7 @@ const useListRender = () => {
     const listUpdate = useCallback((newItem) => {
         setList((prev) => [
             ...prev,
-            {
-                ...newItem,
-                id: prev.length + 1,
-                userId: prev.length + 1
-            }
+             newItem
         ]);
     }, []);
 

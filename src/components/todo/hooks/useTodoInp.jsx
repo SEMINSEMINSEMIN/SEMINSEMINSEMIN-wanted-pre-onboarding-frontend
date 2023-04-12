@@ -21,13 +21,8 @@ const useTodoInp = (listUpdate) => {
         [debouncedHandleInpChange]
     );
 
-    const renderAfterSubmit = useCallback(() => {
-        const newItem = {
-            todo: inpRef.current.value,
-            isCompleted: false,
-        };
-
-        listUpdate(newItem);
+    const renderAfterSubmit = useCallback((res) => {
+        listUpdate(res.data);
         setIsBtnAble(false);
         inpRef.current.value = "";
     }, [listUpdate]);
