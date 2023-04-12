@@ -11,15 +11,16 @@ export default function ListItem(props) {
         <ListItemCont>
             <input 
                 id={`cb${inpId}`} 
-                onClick={() => handleCbClick(inpId, todo, isCompleted)} 
+                onChange={() => handleCbClick(inpId, todo, isCompleted)} 
                 className="ir" 
-                type="checkbox" 
+                type="checkbox"
+                checked={isChecked}
             />
             <label 
                 className={isChecked ? "checked" : ""} 
                 htmlFor={`cb${inpId}`}
             >
-                <span>{todo}</span>
+                {todo}
             </label>
             <ButtonSvg className="edit-button" description="수정" testId="modify-button">
                 <Edit width="24" height="24" fill="#767676" />

@@ -5,28 +5,28 @@ const ListItemCont = styled.li`
     &:not(:first-child) {
         margin-top: 4px;
     }
-
     & label {
         display: flex;
+        line-height: 2rem;
+        text-decoration: none;
     }
     & label::before {
         content: "";
-        display: block;
+        display: inline-block;
         flex-shrink: 0;
         width: 20px;
         height: 20px;
+        margin-right: 12px;
         border: 1px solid var(--color-solid2nd-gray);
         border-radius: 5px;
     }
     & label.checked::before {
         background-color: var(--color-main-mild);
     }
-    & span {
-        margin: 0 12px 0 15px;
-        line-height: 2rem;
-        text-decoration: none;
+    & input:focus + label::before {
+        outline: 2px solid #007bff;
     }
-    & label.checked > span {
+    & label.checked {
         text-decoration: line-through;
     }
     & svg:hover .edit {
