@@ -50,7 +50,6 @@ export default function useValidityCheck() {
 
     const emailChangeHandler = useCallback((e) => {
         if (warnEmailRef.current.textContent !== '이메일은 "@"을 포함해야 합니다.') {
-            console.log("경고 메시지 다시 초기값으로");
             warnEmailRef.current.textContent = '이메일은 "@"을 포함해야 합니다.';
         }
         dispatchEmail({ val: e.target.value });
@@ -58,7 +57,6 @@ export default function useValidityCheck() {
 
     const pwChangeHandler = useCallback((e) => {
         if (warnPwRef.current.textContent !== "비밀번호는 8자 이상이어야 합니다.") {
-            console.log("경고 메시지 다시 초기값으로");
             warnPwRef.current.textContent = "비밀번호는 8자 이상이어야 합니다.";
         }
         dispatchPw({ val: e.target.value });
@@ -66,7 +64,6 @@ export default function useValidityCheck() {
 
     const submitHandler = useCallback((e, type) => {
         e.preventDefault();
-        console.log(type);
         const reqConfig = {
             method: "POST",
             URL: type === "signup" ? "/auth/signup" : "/auth/signin",
