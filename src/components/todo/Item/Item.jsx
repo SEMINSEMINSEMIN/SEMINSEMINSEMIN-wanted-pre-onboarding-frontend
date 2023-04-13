@@ -61,7 +61,7 @@ export default function Item(props) {
                     <ButtonSvg
                         className={`editSubmit-button ${isSubmitAble ? "activated" : ""}`}
                         description="수정 내용 제출"
-                        testid="submit-button"
+                        testId="submit-button"
                         type="submit"
                         isDisabled={!isSubmitAble}
                     >
@@ -69,7 +69,7 @@ export default function Item(props) {
                     </ButtonSvg>
                     <ButtonSvg
                         description="수정 취소"
-                        testid="cancel-button"
+                        testId="cancel-button"
                         onClick={handleCancelIconClick}
                     >
                         <Cancel width="24" height="24" fill="#767676" />
