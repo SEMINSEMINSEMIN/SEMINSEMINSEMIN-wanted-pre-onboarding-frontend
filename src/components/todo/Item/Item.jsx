@@ -17,7 +17,7 @@ export default function Item(props) {
         handleCancelIconClick,
         handleInpChange,
         handleSubmit
-    } = useEdit(setTodoValue, todoOnEdit, setTodoOnEdit, isChecked);
+    } = useEdit(todoValue, setTodoValue, todoOnEdit, setTodoOnEdit, isChecked);
 
     if (!isOnEdit) {
         return (

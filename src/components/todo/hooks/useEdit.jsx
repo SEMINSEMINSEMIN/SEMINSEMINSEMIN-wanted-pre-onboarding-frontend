@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useContext } from "react";
 import useHttp from "../../../hooks/use-http";
 import AuthContext from "../../../context/AuthContext";
 
-const useEdit = (setTodoValue, todoOnEdit, setTodoOnEdit, isChecked) => {
+const useEdit = (init, setTodoValue, todoOnEdit, setTodoOnEdit, isChecked) => {
     const [isSubmitAble, setIsSubmitAble] = useState(true);
     const [isOnEdit, setIsOnEdit] = useState(false);
     const ctx = useContext(AuthContext);
@@ -21,7 +21,8 @@ const useEdit = (setTodoValue, todoOnEdit, setTodoOnEdit, isChecked) => {
 
     const handleEditIconClick = useCallback(() => {
         setIsOnEdit(true);
-    }, []);
+        setTodoOnEdit(init);
+    }, [setTodoOnEdit, init]);
 
     const handleCancelIconClick = useCallback(() => {
         setIsOnEdit(false);
