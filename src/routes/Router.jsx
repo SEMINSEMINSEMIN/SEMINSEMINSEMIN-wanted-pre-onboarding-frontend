@@ -7,6 +7,7 @@ const Home = lazy(() => import("../pages/Home"));
 const SignUp = lazy(() => import("../pages/SignUp"));
 const SignIn = lazy(() => import("../pages/SignIn"));
 const Todo = lazy(() => import("../pages/Todo"));
+const NotFound = lazy(() => import("../pages/NotFound"));
 
 export default function Router() {
     const ctx = useContext(AuthContext);
@@ -45,6 +46,10 @@ export default function Router() {
                                 <Navigate to="/signin" />
                             )
                         }
+                    />
+                    <Route
+                        path="/*"
+                        element={<NotFound />}
                     />
                 </Routes>
             </Suspense>
