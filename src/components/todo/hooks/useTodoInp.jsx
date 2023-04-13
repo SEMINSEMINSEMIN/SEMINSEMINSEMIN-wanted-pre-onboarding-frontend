@@ -25,6 +25,7 @@ const useTodoInp = (addItem) => {
         addItem(res.data);
         setIsBtnAble(false);
         inpRef.current.value = "";
+        document.scrollingElement.scrollTop = document.documentElement.scrollHeight
     }, [addItem]);
 
     const createTodo = useCallback(() => {

@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 const TopbarCont = styled.header`
-    position: relative;
+    position: fixed;
+    top: 0;
+    width: 100%;
     padding: 14px;
     background-color: var(--color-main-solid);
 
