@@ -6,6 +6,7 @@ const ListItemCont = styled.li`
         margin-top: 4px;
     }
     & label {
+        width: calc(100% - 64px);
         display: flex;
         line-height: 2rem;
         text-decoration: none;
@@ -23,10 +24,18 @@ const ListItemCont = styled.li`
     & label.checked::before {
         background-color: var(--color-main-mild);
     }
-    & input:focus + label::before {
+    & label span {
+        width: calc(100% - 34px);
+        word-wrap: break-word;
+        overflow: auto;
+    }
+    & input[type=checkbox]:focus + label::before {
         outline: 2px solid #007bff;
     }
-    & label.checked {
+    & input[type=checkbox]:focus + form label::before {
+        outline: 2px solid #007bff;
+    }
+    & label.checked > span {
         text-decoration: line-through;
     }
     & svg:hover .edit {
@@ -35,8 +44,27 @@ const ListItemCont = styled.li`
     & svg:hover .delete {
         fill: var(--color-text-warn);
     }
-    & .edit-button {
+    & svg:hover .cancel {
+        fill: var(--color-text-warn);
+    }
+    & .edit-button, & .editSubmit-button {
         margin-left: auto;
+    }
+    & .editSubmit-button.activated svg .edit-submit {
+        fill: var(--color-edit);
+    }
+    & form {
+        width: 100%;
+        display: flex;
+    }
+    & .edit-input {
+        box-sizing: initial;
+        flex-grow: 1;
+        height: 1.9rem;
+        padding: 0px;
+        padding-bottom: 2px;
+        font-size: inherit;
+        border-bottom: 1px solid var(--color-main-solid);
     }
 `;
 
