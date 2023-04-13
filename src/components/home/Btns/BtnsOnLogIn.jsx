@@ -1,11 +1,12 @@
 import Button from "../../common/Button/Button";
+import BtnsCont from "./btns.style";
 import useBtnsOnLogin from "../hooks/useBtnsOnLogin";
 
 export default function BtnsOnLogIn({ handleLogoutClick }) {
     const { handleTodoClick } = useBtnsOnLogin();
 
     return (
-        <>
+        <BtnsCont>
             <Button
                 type="button"
                 className="home gradient"
@@ -20,6 +21,6 @@ export default function BtnsOnLogIn({ handleLogoutClick }) {
             >
                 로그아웃
             </Button>
-        </>
+        </BtnsCont>
     );
 }
