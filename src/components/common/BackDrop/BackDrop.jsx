@@ -1,5 +1,5 @@
 import { BackdropCont } from "./backDrop.style";
 
-export default function BackDrop(props) {
-    return <BackdropCont onClick={props.onClick} />;
+export default function BackDrop({ className, onClick }) {
+    return <BackdropCont className={className} onClick={onClick} />;
 }

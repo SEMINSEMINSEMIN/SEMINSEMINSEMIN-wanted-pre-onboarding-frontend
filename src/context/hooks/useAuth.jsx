@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { redirect } from "react-router-dom";
 import useLocalStorage from "../../hooks/useLocalStorage";
 
 export default function useAuth() {
@@ -13,7 +12,6 @@ export default function useAuth() {
 
     const logoutHandler = () => {
         removeValue();
-        redirect("/");
     };
 
     const loginHandler = (value) => {
