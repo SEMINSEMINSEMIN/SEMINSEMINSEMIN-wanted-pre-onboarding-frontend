@@ -9,6 +9,10 @@ const useCheckbox = (init) => {
     const { isLoggedIn: token } = ctx;
     const sendRequest = useHttp();
 
+    const renderAfterReq = useCallback(() => {
+        setIsChecked((prev) => !prev);
+    }, []);
+
     const handleCbClick = useCallback((id, todo) => {
         const reqConfig = {
             method: "PUT",
@@ -22,14 +26,9 @@ const useCheckbox = (init) => {
                 "Content-Type" : "application/json"
             }
         };
-
-        try {
-            sendRequest(reqConfig, (res) => console.log(res.data), (e) => console.log(e));
-            setIsChecked((prev) => !prev);
-        } catch(e) {
-            console.log(e);
-        }
-    }, [token, isChecked, sendRequest]);
+        
+        sendRequest(reqConfig, renderAfterReq, (e) => console.log(e));
+    }, [token, isChecked, sendRequest, renderAfterReq]);
 
     return {
         isChecked,
