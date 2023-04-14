@@ -82,6 +82,17 @@
 
 ## 🗓 프로젝트 개발 기간
 2023.04.02 ~ 2023.04.14
+
+## 🙌 성능 측정 
+### 홈, 로그인, 회원가입, 에러 페이지
+<img width="339" alt="홈페이지, 로그인 페이지, 회원가입 페이지, 에러 페이지" src="https://user-images.githubusercontent.com/104843477/231943547-454e5168-111f-4824-a2a5-13ea6afd386f.png">
+
+### 투두리스트 페이지
+<img width="368" alt="투두리스트 페이지" src="https://user-images.githubusercontent.com/104843477/231943573-02a9c565-fc63-4bd3-af90-7f235c3d0965.png">
+<img width="628" alt="스크린샷 2023-04-14 오후 1 43 31" src="https://user-images.githubusercontent.com/104843477/231943727-c52638e0-1604-4bbd-9e1e-8927aa7d1fd9.png">
+
+투두리스트 페이지는 로그인을 해야 접근할 수 있고 사적인 내용이 담겨 있기 때문에, 검색엔진에 크롤링할 권한을 부여하지 않았습니다.
+
 ## ⚙️ 개발 환경
 <table>
       <thead align="center">
@@ -121,17 +132,6 @@
         </tr>
       </tbody>
 </table>
-
-## 🙌 성능 측정 
-### 홈, 로그인, 회원가입, 에러 페이지
-<img width="339" alt="홈페이지, 로그인 페이지, 회원가입 페이지, 에러 페이지" src="https://user-images.githubusercontent.com/104843477/231943547-454e5168-111f-4824-a2a5-13ea6afd386f.png">
-
-### 투두리스트 페이지
-<img width="368" alt="투두리스트 페이지" src="https://user-images.githubusercontent.com/104843477/231943573-02a9c565-fc63-4bd3-af90-7f235c3d0965.png">
-<img width="628" alt="스크린샷 2023-04-14 오후 1 43 31" src="https://user-images.githubusercontent.com/104843477/231943727-c52638e0-1604-4bbd-9e1e-8927aa7d1fd9.png">
-
-투두리스트 페이지는 로그인을 해야 접근할 수 있고 사적인 내용이 담겨 있기 때문에, 검색엔진에 크롤링할 권한을 부여하지 않았습니다.
-
 
 ### ⛓️ node modules
 |모듈명|용도|
