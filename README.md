@@ -18,10 +18,10 @@
 
 <tr>
     <td valign="top" align="center" width="50%">
-    <a href="/"><img src="https://user-images.githubusercontent.com/104843477/231934575-ae225e47-55e6-4a6d-b83a-9b25196ba066.gif"/></a>
+    <img src="https://user-images.githubusercontent.com/104843477/231934575-ae225e47-55e6-4a6d-b83a-9b25196ba066.gif"/>
     </td>
     <td valign="top" width="50%">
-    <a href="/"><img src="https://user-images.githubusercontent.com/104843477/231932292-b38e38ca-cdbf-4d2e-8296-947ecb558567.gif"/></a>
+    <img src="https://user-images.githubusercontent.com/104843477/231932292-b38e38ca-cdbf-4d2e-8296-947ecb558567.gif"/>
     </td>
 </tr>
 </table>
@@ -36,10 +36,10 @@
 
 <tr>
     <td valign="top" align="center">
-    <a href="/"><img src="https://user-images.githubusercontent.com/104843477/231933230-e0b63236-2e21-4581-be6e-73dbcea1bafb.gif"/></a>
+    <img src="https://user-images.githubusercontent.com/104843477/231933230-e0b63236-2e21-4581-be6e-73dbcea1bafb.gif"/>
     </td>
     <td valign="top" align="center">
-    <a href="/"><img src="https://user-images.githubusercontent.com/104843477/231933931-7ea9f385-9982-4f2b-9245-7c9f166172c9.gif"/></a>
+    <img src="https://user-images.githubusercontent.com/104843477/231933931-7ea9f385-9982-4f2b-9245-7c9f166172c9.gif"/>
     </td>
 </tr>
 </table>
@@ -60,10 +60,10 @@
 
 <tr>
     <td valign="top" align="center" width="50%">
-    <a href="/"><img src="https://user-images.githubusercontent.com/104843477/231936770-b99d1c04-2c79-4215-90fe-56c1aadef789.gif"/></a>
+    <img src="https://user-images.githubusercontent.com/104843477/231936770-b99d1c04-2c79-4215-90fe-56c1aadef789.gif"/>
     </td>
     <td valign="top" width="50%">
-    <a href="/"><img src="https://user-images.githubusercontent.com/104843477/231936390-55017959-3328-4ecc-9af8-3ef330494d69.gif"/></a>
+    <img src="https://user-images.githubusercontent.com/104843477/231936390-55017959-3328-4ecc-9af8-3ef330494d69.gif"/>
     </td>
 </tr>
 </table>
@@ -75,7 +75,7 @@
 
 <tr>
     <td valign="top" align="center">
-    <a href="/"><img src="https://user-images.githubusercontent.com/104843477/231937346-633603f3-24d2-4ca9-92d0-715952a53ec5.gif"/></a>
+    <img src="https://user-images.githubusercontent.com/104843477/231937346-633603f3-24d2-4ca9-92d0-715952a53ec5.gif"/>
     </td>
 </tr>
 </table>
