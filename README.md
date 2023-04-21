@@ -165,7 +165,7 @@ UI 재사용뿐만 아니라 로직또한 재사용하기 위해 [Hooks Pattern]
 특이사항
   * 공용 훅: src/hooks/
   * 공용 컴포넌트: src/components/common/
-  * 페이지별 컴포넌트: src/components/home/src/components/todo/
+  * 페이지별 컴포넌트: src/components/home
     * 해당 페이지에서만 사용하는 컴포넌트의 경우 하위 폴더인 hooks/에 넣었습니다.
 <br>
 <details>
