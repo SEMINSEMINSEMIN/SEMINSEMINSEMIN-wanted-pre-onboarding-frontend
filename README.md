@@ -1,5 +1,6 @@
 # 원티드 프리온보딩 프론트엔드 - 선발 과제
 📎 [배포 링크 바로가기](https://hityouwiththattodotodoto.netlify.app/)
+📎 [필수 과제 기능 구현 관련 설명한 위키 바로 가기](https://github.com/SEMINSEMINSEMIN/wanted-pre-onboarding-frontend/wiki)
 ## 🧚‍♀️ 기능 시연
 
 <table width="100%">
